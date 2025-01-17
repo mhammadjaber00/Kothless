@@ -12,7 +12,6 @@ group = "io.github.kotlin"
 version = "1.0.0"
 
 kotlin {
-    jvm()
     androidTarget {
         publishLibraryVariants("release")
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
@@ -23,7 +22,6 @@ kotlin {
     iosX64()
     iosArm64()
     iosSimulatorArm64()
-    linuxX64()
 
     sourceSets {
         val commonMain by getting {
@@ -40,7 +38,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.jetbrains.kotlinx.multiplatform.library.template"
+    namespace = "com.jabxm.kothless"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()

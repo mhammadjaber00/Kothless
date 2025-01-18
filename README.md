@@ -27,7 +27,7 @@ Also, currently it only runs tests, but you can change this behavior as you wish
 
 ## How do I deploy it to Maven Central?
 
-The most part of the job is already automated for you. However, deployment to Maven Central requires some manual work from your side.
+The most part of the job is already automated for you. However, deployment to Maven Central requires some manual work from your side. 
 
 1. [ ] Create an account at [Sonatype issue tracker](https://issues.sonatype.org/secure/Signup!default.jspa)
 2. [ ] [Create an issue](https://issues.sonatype.org/secure/CreateIssue.jspa?issuetype=21&pid=10134) to create new project for you

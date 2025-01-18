@@ -26,13 +26,47 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                //put your multiplatform dependencies here
+                implementation(libs.ktor.client.core)
+                implementation(libs.kotlinx.coroutines)
             }
         }
         val commonTest by getting {
             dependencies {
                 implementation(libs.kotlin.test)
+                implementation(libs.ktor.client.mock)
             }
+        }
+        val androidMain by getting {
+            dependencies {
+                implementation(libs.ktor.client.okhttp)
+                implementation(libs.core)
+                implementation(libs.fragment.ktx)
+                implementation(libs.androidx.biometric.ktx)
+            }
+        }
+        val iosMain by creating {
+            dependsOn(commonMain)
+        }
+        val iosTest by creating {
+            dependsOn(commonTest)
+        }
+        val iosX64Main by getting {
+            dependsOn(iosMain)
+        }
+        val iosArm64Main by getting {
+            dependsOn(iosMain)
+        }
+        val iosSimulatorArm64Main by getting {
+            dependsOn(iosMain)
+        }
+        val iosX64Test by getting {
+            dependsOn(iosTest)
+        }
+        val iosArm64Test by getting {
+            dependsOn(iosTest)
+        }
+        val iosSimulatorArm64Test by getting {
+            dependsOn(iosTest)
         }
     }
 }

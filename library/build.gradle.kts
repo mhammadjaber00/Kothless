@@ -1,5 +1,4 @@
 import com.vanniktech.maven.publish.SonatypeHost
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -8,15 +7,14 @@ plugins {
     alias(libs.plugins.vanniktech.mavenPublish)
 }
 
-group = "io.github.kotlin"
+group = "io.yavero"
 version = "1.0.0"
 
 kotlin {
     androidTarget {
-        publishLibraryVariants("release")
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        publishLibraryVariants("release", "debug")
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_1_8)
+            jvmTarget.set(JvmTarget.JVM_11)
         }
     }
     iosX64()
@@ -72,43 +70,48 @@ kotlin {
 }
 
 android {
-    namespace = "com.jabxm.kothless"
+    namespace = "io.yavero.kothless"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }
 
 mavenPublishing {
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
 
-    signAllPublications()
-
-    coordinates(group.toString(), "library", version.toString())
+    coordinates("io.yavero", "kothless", "1.0.0")
 
     pom {
-        name = "My library"
-        description = "A library."
+        name = "Kothless"
+        description = "A Kotlin Multiplatform library for passwordless authentication."
         inceptionYear = "2024"
-        url = "https://github.com/kotlin/multiplatform-library-template/"
+        url = "https://github.com/mhammadjaber00/Kothless"
+
         licenses {
             license {
-                name = "XXX"
-                url = "YYY"
-                distribution = "ZZZ"
+                name = "Apache License 2.0"
+                url = "https://www.apache.org/licenses/LICENSE-2.0.html"
+                distribution = "repo"
             }
         }
+
         developers {
             developer {
-                id = "XXX"
-                name = "YYY"
-                url = "ZZZ"
+                id = "mhammadjaber00"
+                name = "Mohammad Jaber"
+                url = "https://github.com/mhammadjaber00"
             }
         }
+
         scm {
-            url = "XXX"
-            connection = "YYY"
-            developerConnection = "ZZZ"
+            url = "https://github.com/mhammadjaber00/Kothless"
+            connection = "scm:git:git://github.com/mhammadjaber00/Kothless.git"
+            developerConnection = "scm:git:ssh://git@github.com:mhammadjaber00/Kothless.git"
         }
     }
 }

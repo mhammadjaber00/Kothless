@@ -1,6 +1,5 @@
-package client
+package io.yavero.kothless.client
 
-import client.DummyServerBackend
 import kotlinx.coroutines.delay
 
 class ServerClient(private val dummyBackend: DummyServerBackend = DummyServerBackend()) {

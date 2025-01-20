@@ -1,6 +1,6 @@
-package key
+package io.yavero.kothless.key
 
-import biometric.PlatformSignature
+import io.yavero.kothless.biometric.PlatformSignature
 
 interface KeyManager {
     fun generateKeyPair(userId: String): Pair<String, String>

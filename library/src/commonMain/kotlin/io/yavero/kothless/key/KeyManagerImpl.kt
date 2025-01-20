@@ -1,6 +1,6 @@
-package key
+package io.yavero.kothless.key
 
-import biometric.PlatformSignature
+import io.yavero.kothless.biometric.PlatformSignature
 
 expect class KeyManagerImpl() : KeyManager {
     override fun generateKeyPair(userId: String): Pair<String, String>

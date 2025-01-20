@@ -1,8 +1,8 @@
-package auth
+package io.yavero.kothless.auth
 
-import client.ServerClient
-import key.KeyManager
-import key.KeyManagerImpl
+import io.yavero.kothless.client.ServerClient
+import io.yavero.kothless.key.KeyManager
+import io.yavero.kothless.key.KeyManagerImpl
 
 class PasswordlessAuthImpl(
     private val keyManager: KeyManager = KeyManagerImpl(),

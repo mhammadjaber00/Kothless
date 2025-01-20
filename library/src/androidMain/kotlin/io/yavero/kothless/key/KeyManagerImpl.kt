@@ -1,12 +1,15 @@
-package key
+package io.yavero.kothless.key
 
 import android.os.Build
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
 import androidx.annotation.RequiresApi
-import biometric.AndroidPlatformSignature
-import biometric.PlatformSignature
-import java.security.*
+import io.yavero.kothless.biometric.AndroidPlatformSignature
+import io.yavero.kothless.biometric.PlatformSignature
+import java.security.KeyPair
+import java.security.KeyPairGenerator
+import java.security.KeyStore
+import java.security.PrivateKey
 import java.util.Base64
 
 actual class KeyManagerImpl : KeyManager {
@@ -30,7 +33,7 @@ actual class KeyManagerImpl : KeyManager {
         keyStore.load(null)
 
         if (keyStore.containsAlias("$ALIAS_PREFIX$userId")) {
-            val privateKey = keyStore.getKey("$ALIAS_PREFIX$userId", null) as java.security.PrivateKey
+            val privateKey = keyStore.getKey("$ALIAS_PREFIX$userId", null) as PrivateKey
             val publicKey = keyStore.getCertificate("$ALIAS_PREFIX$userId").publicKey
             return KeyPair(publicKey, privateKey)
         }

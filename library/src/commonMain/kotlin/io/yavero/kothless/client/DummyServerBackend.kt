@@ -1,4 +1,4 @@
-package client
+package io.yavero.kothless.client
 
 class DummyServerBackend {
     private val userPublicKeys = mutableMapOf<String, String>()

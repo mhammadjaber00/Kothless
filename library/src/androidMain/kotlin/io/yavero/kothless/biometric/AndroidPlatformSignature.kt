@@ -1,9 +1,10 @@
-package biometric
+package io.yavero.kothless.biometric
 
 import java.security.PrivateKey
 import java.security.Signature
 
-class AndroidPlatformSignature(algorithm: String, private val privateKey: PrivateKey) : PlatformSignature {
+class AndroidPlatformSignature(algorithm: String, private val privateKey: PrivateKey) :
+    PlatformSignature {
 
     private val signatureInstance: Signature = Signature.getInstance(algorithm).apply {
         initSign(privateKey)

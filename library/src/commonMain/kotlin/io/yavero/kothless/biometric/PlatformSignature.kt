@@ -1,4 +1,4 @@
-package biometric
+package io.yavero.kothless.biometric
 
 interface PlatformSignature {
     fun update(data: ByteArray)

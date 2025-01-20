@@ -1,4 +1,4 @@
-package auth
+package io.yavero.kothless.auth
 
 interface PasswordlessAuth {
     suspend fun registerUser(userId: String): Boolean
